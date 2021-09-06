@@ -6,7 +6,9 @@ namespace SnakeLadderProblem_CS
 /// </summary>
     class SnakeLadder
     {
-        //UC3 snake ladder problem 
+        //initializing instance variable
+        public static int position = 0;
+        //UC4 till player reaches 100 position in Snake ladder game 
         //Generating a random no using Random method()
         public static int CheckDice()
         {
@@ -18,11 +20,10 @@ namespace SnakeLadderProblem_CS
         public static void CheckOption()
         {
             Random random = new Random();
-            int CheckOption = random.Next(0, 3);
-            int position = 0;
+            int checkOption = random.Next(0, 3);
             int dice = SnakeLadder.CheckDice();
             //switch selection statement
-            switch (CheckOption)
+            switch (checkOption)
             {
                 case 0:
                     Console.WriteLine("No play");
@@ -35,14 +36,36 @@ namespace SnakeLadderProblem_CS
                 case 2:
                     Console.WriteLine("Ladder");
                     position += dice;
-                    Console.WriteLine("Player current position" + position);
                     break;
             }
         }
 
+        public static void WinningPosition()
+        {
+            //local variable
+            int winPosition = 100;
+            //Repetation loop till reach winposition
+            while (position <= winPosition)
+            {
+                SnakeLadder.CheckOption();
+                if (position == winPosition)
+                {
+                    Console.WriteLine("Player current position" + position);
+                }
+                else if (position < 0)
+                {
+                    Console.WriteLine("Restart the game");
+                    Console.WriteLine("Player current position" + position);
+                }
+                else
+                {
+                    Console.WriteLine("Player current position" + position);
+                }
+            }
+        }
         static void Main(string[] args)
         {
-            SnakeLadder.CheckOption();
+            SnakeLadder.WinningPosition();
             Console.ReadLine();
         }
     }
