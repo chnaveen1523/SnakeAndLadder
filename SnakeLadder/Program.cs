@@ -1,12 +1,19 @@
 ﻿using System;
 
-namespace Message
+namespace SnakeLadderProblem_CS
 {
-    class Program
+    class SnakeLadder
     {
+        public static void Position()
+        {
+            int position = 0;
+            Console.WriteLine("Player is at start position:" + position);
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to SnakeLadder");
+            Console.WriteLine("Single player");
+            SnakeLadder.Position();
+            Console.ReadLine();
         }
     }
 }
